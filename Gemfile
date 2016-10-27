@@ -25,6 +25,10 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'mysql2','0.3.17'
+#cdeditor所见即所得编辑器
+gem 'carrierwave'
+gem 'mini_magick'
+gem 'ckeditor'
 #gem 'kaminari'
 #gem 'carrierwave','0.9.0'
 #gem 'bootstrap','~> 3.3.5'
