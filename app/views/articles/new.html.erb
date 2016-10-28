@@ -2,5 +2,8 @@
 <%= form_for @article ,url:articles_path do |f| %>
   <%= f.text_field :title %>
   <%= f.cktext_area :content %>
+  <!--这里文章需要加上分类标签-->
+  <%= f.collection_select("classificate_id",Classificate.all,:id ,:fenlei) %>
+
   <%= f.submit '提交' %>
 <% end %>
