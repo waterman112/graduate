@@ -1,6 +1,6 @@
 class ArticlesController < ApplicationController
   def index
-    @articles = Article.all
+    @articles = Article.all.where("classificate_id=?",params[:fenlei])
   end
 
   def new
