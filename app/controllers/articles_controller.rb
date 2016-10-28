@@ -1,6 +1,11 @@
 class ArticlesController < ApplicationController
   def index
-    @articles = Article.all.where("classificate_id=?",params[:fenlei])
+
+    @articles = Article
+
+    @articles = @articles.where("classificate_id=?",params[:fenlei]) if params[:fenlei].present?
+
+    @articles = @articles.all
   end
 
   def new
@@ -10,7 +15,7 @@ class ArticlesController < ApplicationController
   def create
     @article = Article.new(article_params)
     @article.save
-   # render :text => 'alalalal'
+    # render :text => 'alalalal'
     redirect_to @article
   end
 
