@@ -1,5 +1,5 @@
 <h1>this is article new page</h1>
-<%= form_for @article ,url:articles_path do |f| %>
+<%= form_for @article ,url:articles_path, :html =>{:id => "form"} do |f| %>
   <%= f.text_field :title %>
   <%= f.cktext_area :content %>
   <!--这里文章需要加上分类标签-->
@@ -7,3 +7,19 @@
 
   <%= f.submit '提交' %>
 <% end %>
+
+<script>
+	$("#form").validate({
+		rules:{
+      "article[title]":{
+        "required": true,
+     //   "min":  Classificate.last.id
+      },
+		//	"article[fenlei]": "required"
+		},
+		messages:{
+			"article[title]":"请输入id",
+		//	"article[fenlei]":"请输入分类"
+		}
+	});
+</script>

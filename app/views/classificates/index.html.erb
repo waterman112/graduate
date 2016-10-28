@@ -1,0 +1,96 @@
+<!--后台-->
+<h1>this is classificate index page</h1>
+
+<p><%= link_to "新增分类", new_classificate_path, class:"btn btn-info" %></p>
+
+<!--
+<table class="table table-inverse">
+  <tr>
+    <th>ID:</th>
+    <th>FenLei:</th>
+    <th>编辑</th>
+    <th>删除</th>
+  </tr>
+  <% @classificates.each do |classificate| %>
+    <tr>
+      <td>
+        <%= classificate.id %>
+      </td>
+      <td>
+        <%= classificate.fenlei %>
+      </td>
+      <td><%= link_to "编辑", edit_classificate_path(classificate), class:"btn btn-primary" %></td>
+      <td><%= link_to "删除", classificate_path(classificate),method: :delete, data:{confirm:"Are you sure!"}, class:"btn btn-danger" %></td>
+    </tr>
+  <% end %>
+</table>
+-->
+<!--对分类标签进行增删改查-->
+<table>
+  <tr>
+    <td></td><td></td><td></td>
+  </tr>
+</table>
+<div id="jstree_demo">
+  <ul>
+    <% @classificates.each do |classificate| %>
+      <li> <%= classificate.fenlei %></li>
+    <% end %>
+  </ul>
+</div>
+
+<script>
+$("#jstree_demo").jstree({
+  "core":{
+    "themes":{
+      "variant":"large"
+    }
+  }
+});
+
+function demo_create() {
+
+  var ref = $('#jstree_demo').jstree(true),
+
+  sel = ref.get_selected();
+
+  if(!sel.length) { return false; }
+
+  sel = sel[0];
+
+  sel = ref.create_node(sel, {"type":"file"});
+
+  if(sel) {
+
+    ref.edit(sel);
+
+  }
+
+};
+
+function demo_rename() {
+
+  var ref = $('#jstree_demo').jstree(true),
+
+  sel = ref.get_selected();
+
+  if(!sel.length) { return false; }
+
+  sel = sel[0];
+
+  ref.edit(sel);
+
+};
+
+function demo_delete() {
+
+  var ref = $('#jstree_demo').jstree(true),
+
+  sel = ref.get_selected();
+
+  if(!sel.length) { return false; }
+
+  ref.delete_node(sel);
+
+};
+</script>

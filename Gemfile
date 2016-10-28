@@ -29,11 +29,8 @@ gem 'mysql2','0.3.17'
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'ckeditor'
-#gem 'kaminari'
-#gem 'carrierwave','0.9.0'
-#gem 'bootstrap','~> 3.3.5'
-#gem 'sass-rails','>=3.2'
-
+gem 'devise','3.4.0'
+gem 'jstree-rails'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

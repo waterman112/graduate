@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
+  devise_for :models
   mount Ckeditor::Engine => '/ckeditor'
   resources :articles
   resources :classificates
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

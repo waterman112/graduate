@@ -1,0 +1,22 @@
+<h1>this is classificates show page</h1>
+<!--
+  <%#  <strong>ID:</strong>        %>
+  <%#  <%=# @classificate.id %>    %>
+  <%#</p>                          %>
+  <%#<p>                           %>
+  <%#  <strong>FenLei:</strong>    %>
+  <%#  <%=# @classificate.fenlei %>%>
+  <%#</p>                          %>
+-->
+  <table class="table table-reverse">
+    <tr>
+      <th>ID:</th>
+      <th>FenLei:</th>
+    </tr>
+    <tr>
+      <td><%= @classificate.id %></td>
+      <td><%= @classificate.fenlei %></td>
+    </tr>
+  </table>
+
+<%= link_to "返回", classificates_path, class:"btn btn-primary", style:"float:right;" %>

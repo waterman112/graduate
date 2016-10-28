@@ -6,3 +6,19 @@
 <% end %>
 
 <%= link_to "返回", articles_path %>
+
+<script>
+	$("#form").validate({
+		rules:{
+      "article[title]":{
+        "required": true,
+     //   "min":  Classificate.last.id
+      },
+		//	"article[fenlei]": "required"
+		},
+		messages:{
+			"article[title]":"请输入id",
+		//	"article[fenlei]":"请输入分类"
+		}
+	});
+</script>
