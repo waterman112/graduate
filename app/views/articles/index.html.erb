@@ -1,6 +1,17 @@
+<div style="float:right;">
+  <p>DateTimePicker:</p>
+  <p><input type="text" value="" id="datetimepicker" /></p>
+</div>
+
 <h1>this is article index page</h1>
+
 <% @articles.each do |article| %>
   <p>
     <%= link_to "#{article.title}", article_path(article) %>
   </p>
 <% end %>
+<%= paginate @articles %>
+
+<script>
+  $("#datetimepicker").datetimepicker();
+</script>

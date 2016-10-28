@@ -2,5 +2,4 @@
 <p><%= @article.title %></p>
 <p><%= @article.content %></p>
 <p>分类：<%= Classificate.where("id=?", @article.classificate_id).first.fenlei %></p>
-<%= link_to "返回",{controller:"articles",action:"index",fenlei:"#{@article.classificate_id}"} %>
 <%= link_to "返回", articles_path(:fenlei => @article.classificate_id ) %>

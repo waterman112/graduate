@@ -16,3 +16,5 @@
 //= require jstree.min.js
 //= require jquery-validate.js
 //= require bootstrap.min.js
+//= require jquery.datetimepicker.full.min.js
+//= requier canvasjs.min.js

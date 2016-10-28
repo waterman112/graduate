@@ -31,7 +31,8 @@ gem 'mini_magick'
 gem 'ckeditor'
 gem 'devise','3.4.0'
 gem 'jstree-rails'
-
+gem 'kaminari'
+gem 'log4r','1.1.9'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

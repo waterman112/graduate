@@ -5,7 +5,7 @@ class ArticlesController < ApplicationController
 
     @articles = @articles.where("classificate_id=?",params[:fenlei]) if params[:fenlei].present?
 
-    @articles = @articles.all
+    @articles = @articles.all.page(params[:page]).per(5)
   end
 
   def new
