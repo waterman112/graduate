@@ -64,6 +64,7 @@ class ArticlesController < ApplicationController
    # puts "=== hihihi, in before_action, get_article"
     @article = Article.find params[:id]
   end
+
   def article_params
     params.require(:article).permit(:title,:content,:classificate_id)
   end

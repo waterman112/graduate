@@ -1,3 +1,8 @@
+<style>
+.margin_top{
+  margin-top:11px;
+}
+</style>
 <h1>this is article new page</h1>
 <%= form_for @article ,url:articles_path, :html =>{:id => "form"} do |f| %>
   <p>标题</p>
@@ -6,11 +11,11 @@
   <%= f.cktext_area :content %>
   <%= f.file_field :logo  %>
   <!--这里文章需要加上分类标签-->
-  <%= f.collection_select("classificate_id",Classificate.all,:id ,:fenlei) %>
+  <%= f.collection_select "classificate_id",Classificate.all,:id ,:fenlei ,{},{:class =>"margin_top"} %>
   <!--f.file_field 这样的话，artleces表中必须有 logo这个列。?
 
   -->
-  <%= f.submit '提交' %>
+  <%= f.submit '提交', class: "btn btn-primary" %>
 <% end %>
 
 <script>
@@ -18,13 +23,10 @@
 		rules:{
       "article[title]":{
         "required": true,
-     //   "min":  Classificate.last.id
       },
-		//	"article[fenlei]": "required"
 		},
 		messages:{
 			"article[title]":"请输入id",
-		//	"article[fenlei]":"请输入分类"
 		}
 	});
 </script>

@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  devise_for :models
+  devise_for :users
+
   mount Ckeditor::Engine => '/ckeditor'
   resources :articles do
     collection do
@@ -12,7 +13,6 @@ Rails.application.routes.draw do
     resources :classificates do
       collection do
         get :all
-        get :draw
       end
     end
   end
@@ -21,7 +21,7 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  # root 'welcome#index'
+   root 'classificates#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
