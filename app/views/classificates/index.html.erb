@@ -1,9 +1,15 @@
-<!--后台-->
 <h1>this is classificate index page</h1>
 
 <p><%= link_to "新增分类", new_classificate_path, class:"btn btn-primary" %></p>
 
-<!--
+<div id="jstree_demo">
+  <ul>
+    <% @classificates.each do |classificate| %>
+      <li> <%= classificate.fenlei %>  </li>
+    <% end %>
+  </ul>
+</div>
+
 <table class="table table-inverse">
   <tr>
     <th>ID:</th>
@@ -24,21 +30,10 @@
     </tr>
   <% end %>
 </table>
--->
-<!--对分类标签进行增删改查-->
-<table class="table table-reverse">
-  <tr>
-    <td class="btn btn-primary" onclick="demo_rename()">编辑</td>
-    <td class="btn btn-danger" onclick="demo_delete()">删除</td>
-  </tr>
-</table>
-<div id="jstree_demo">
-  <ul>
-    <% @classificates.each do |classificate| %>
-      <li> <%= classificate.fenlei %></li>
-    <% end %>
-  </ul>
-</div>
+
+<div  id="using_json"></div>
+
+<!---->
 
 <script>
 $("#jstree_demo").jstree({
@@ -49,49 +44,28 @@ $("#jstree_demo").jstree({
   }
 });
 
-function demo_create() {
 
-  var ref = $('#jstree_demo').jstree(true),
+//js代码 和  rails代码 能够混合式编程。
+//错误的原因是  大师用的是 map方法，我用的是 each 方法。
+//var jia = [];
+//jia.push( { <%= raw  @classificates.each do |e| e.id end  %>});
 
-  sel = ref.get_selected();
+$('#using_json').jstree({ 'core' : {
+    'data' : [
+       'Simple root node',
+       {
+         'text' : 'Root node 2',
+         'state' : {
+           'opened' : true,
+           'selected' : true
+         },
+         'children' : [
 
-  if(!sel.length) { return false; }
-
-  sel = sel[0];
-
-  sel = ref.create_node(sel, {"type":"file"});
-
-  if(sel) {
-
-    ref.edit(sel);
-
-  }
-
-};
-
-function demo_rename() {
-
-  var ref = $('#jstree_demo').jstree(true),
-
-  sel = ref.get_selected();
-
-  if(!sel.length) { return false; }
-
-  sel = sel[0];
-
-  ref.edit(sel);
-
-};
-
-function demo_delete() {
-
-  var ref = $('#jstree_demo').jstree(true),
-
-  sel = ref.get_selected();
-
-  if(!sel.length) { return false; }
-
-  ref.delete_node(sel);
-
-};
+         { 'text' : 'Child 1'
+         },
+           'Child 2'
+         ]
+      }
+    ]
+} });
 </script>

@@ -3,7 +3,7 @@
   <p><input type="text" value="" id="datetimepicker" /></p>
 </div>
 
-<h1>this is article index page</h1>
+<h1>this is article 首页</h1>
 
 <% @articles.each do |article| %>
   <p>
@@ -11,6 +11,8 @@
   </p>
 <% end %>
 <%= paginate @articles %>
+
+<%# line_chart data, id:"charjs" %>
 
 <script>
   $("#datetimepicker").datetimepicker();

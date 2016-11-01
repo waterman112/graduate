@@ -26,13 +26,21 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'mysql2','0.3.17'
 #cdeditor所见即所得编辑器
-gem 'carrierwave'
 gem 'mini_magick'
 gem 'ckeditor'
 gem 'devise','3.4.0'
 gem 'jstree-rails'
 gem 'kaminari'
 gem 'log4r','1.1.9'
+gem 'carrierwave','0.9.0'
+gem 'chartjs-ror'
+
+
+
+
+
+
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

@@ -8,4 +8,18 @@ class Interface::ClassificatesController < ActionController::Base
       }
     }
   end
+
+  #def draw
+  #  render :json => {
+  #   :result => "success"
+  #  }
+  #end
+
+  def draw
+    render :json => {
+
+     :data => {
+
+     }
+    }  end
 end

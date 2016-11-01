@@ -17,4 +17,5 @@
 //= require jquery-validate.js
 //= require bootstrap.min.js
 //= require jquery.datetimepicker.full.min.js
-//= requier canvasjs.min.js
+//= require canvasjs.min.js
+//= require Chart.bundle.min

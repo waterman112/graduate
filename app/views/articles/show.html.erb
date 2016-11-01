@@ -1,5 +1,7 @@
 <h1>this is article show page</h1>
 <p><%= @article.title %></p>
-<p><%= @article.content %></p>
+<p><%= raw @article.content %></p>
 <p>分类：<%= Classificate.where("id=?", @article.classificate_id).first.fenlei %></p>
 <%= link_to "返回", articles_path(:fenlei => @article.classificate_id ) %>
+
+<p>总共访问量 <%= @count.counts %>次</p>

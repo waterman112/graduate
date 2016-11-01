@@ -1,12 +1,18 @@
 Rails.application.routes.draw do
   devise_for :models
   mount Ckeditor::Engine => '/ckeditor'
-  resources :articles
+  resources :articles do
+    collection do
+      get :tongjitu
+    end
+  end
   resources :classificates
+
   namespace :interface do
     resources :classificates do
       collection do
         get :all
+        get :draw
       end
     end
   end
