@@ -19,3 +19,4 @@
 //= require jquery.datetimepicker.full.min.js
 //= require canvasjs.min.js
 //= require Chart.bundle.min
+//= require jssor.slider-21.1.6.min.js

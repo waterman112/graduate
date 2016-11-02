@@ -1,4 +1,4 @@
-<h1>this is classificate new page</h1>
+<h1>这是分类新建页面</h1>
 
 <%= form_for @classificate ,url: classificates_path, :html =>{:id => "my_form"} do |f| %>
   <%= f.text_field :id, placeholder:"请输入id,要大于#{ Classificate.last.id }" %> <br/>

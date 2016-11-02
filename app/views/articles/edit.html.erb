@@ -1,4 +1,4 @@
-<h1>this is edit page</h1>
+<h1>这是文章编辑页面</h1>
 <%= form_for @article,url:article_path(@article),method: :patch do |f| %>
  文章标题: <%= f.text_field :title %>
  文章内容: <%= f.cktext_area :content %>

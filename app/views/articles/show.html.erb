@@ -1,4 +1,4 @@
-<h1>this is article show page</h1>
+<h1>这是文章显示页面</h1>
 <p><%= @article.title %></p>
 <p><%= raw @article.content %></p>
 <p>分类：<%= Classificate.where("id=?", @article.classificate_id).first.fenlei %></p>
