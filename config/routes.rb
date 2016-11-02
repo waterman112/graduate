@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :articles do
     collection do
       get :tongjitu
+      get :about_me
     end
   end
   resources :classificates

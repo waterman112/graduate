@@ -23,7 +23,6 @@ class ArticlesController < ApplicationController
   end
 
   def show
-    puts "===hihihi"
 
   end
 
@@ -58,6 +57,7 @@ class ArticlesController < ApplicationController
 		#@x_axis = Count.all.map{ |count|  "'#{count.date}'" }.join(',')
 		#@daily_pvs = Count.all.map { |count| count.counts }.join(',')
   end
+
 
   private
   def get_article

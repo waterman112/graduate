@@ -6,12 +6,14 @@
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
 </head>
-<body style="background_color:grey; width:1000px; margin:0 auto;">
+<body style=" width:1000px; margin:0 auto;">
 
   <p class="notice"><%= notice %></p>
   <p class="alert"><%= alert %></p>
-  <!--在这里加上分类-->
-  <!--问题：如何在这里传递数据给articles_controller-->
+
+  <!--增加跳转到后台-->
+  <%= link_to "跳转到后台", classificates_path, html_options = { class:"btn btn-primary", style:"float:right;"} %>
+
     <table>
       <tr>
         <% Classificate.all.each do |classificate|  %>
@@ -23,8 +25,10 @@
           -->
         <% end %>
         <td><%= link_to '统计图2', tongjitu_articles_path %></td>
+        <td><%= link_to "关于我", about_me_articles_path %></td>
       </tr>
     </table>
+
   <!---->
   <div id="user_nav">
     <% if user_signed_in?  %>

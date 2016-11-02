@@ -11,6 +11,9 @@
 <p class="notice"><%= notice %></p>
 <p class="alert"><%= alert %></p>
 
+<!--增加跳转到后台-->
+<%= link_to "跳转到前台", articles_path, class:"btn btn-primary", style:"float:right;" %>
+
 <div id="user_nav">
   <% if user_signed_in?  %>
     Signed in as <%= current_user.email %>. Not you?

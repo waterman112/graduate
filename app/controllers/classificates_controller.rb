@@ -1,4 +1,5 @@
 class ClassificatesController < ApplicationController
+  before_filter :authenticate_user!, :except => [:show, :index]
 
   layout "classificate"
 
