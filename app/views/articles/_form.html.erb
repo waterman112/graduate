@@ -1,0 +1,18 @@
+
+<style>
+.margin_top{
+  margin-top:11px;
+}
+</style>
+<%= form_for @article ,:html =>{:id => "form"} do |f| %>
+  <p>标题</p>
+  <%= f.text_field :title %>
+  <p>内容</p>
+  <%= f.cktext_area :content %>
+  <%= f.file_field :logo  %>
+  <!--这里文章需要加上分类标签-->
+  <%= f.collection_select "classificate_id",Classificate.all,:id ,:fenlei ,{},{:class =>"margin_top"} %>
+  <!--f.file_field 这样的话，artleces表中必须有 logo这个列。?
+  -->
+  <%= f.submit '提交', class: "btn btn-primary" %>
+<% end %>

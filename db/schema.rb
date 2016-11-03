@@ -11,12 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161101082153) do
+ActiveRecord::Schema.define(version: 20161103053512) do
 
   create_table "articles", force: :cascade do |t|
     t.string  "title",           limit: 255
     t.string  "content",         limit: 255
     t.integer "classificate_id", limit: 4
+    t.string  "logo",            limit: 255, default: ""
   end
 
   create_table "ckeditor_assets", force: :cascade do |t|
@@ -42,10 +43,6 @@ ActiveRecord::Schema.define(version: 20161101082153) do
   create_table "counts", force: :cascade do |t|
     t.integer "counts", limit: 4
     t.date    "date"
-  end
-
-  create_table "logos", force: :cascade do |t|
-    t.string "logo", limit: 255
   end
 
   create_table "models", force: :cascade do |t|

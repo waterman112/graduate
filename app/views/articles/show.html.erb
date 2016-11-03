@@ -1,7 +1,29 @@
 <h1>这是文章显示页面</h1>
-<p><%= @article.title %></p>
-<p><%= raw @article.content %></p>
-<p>分类：<%= Classificate.where("id=?", @article.classificate_id).first.fenlei %></p>
-<%= link_to "返回", articles_path(:fenlei => @article.classificate_id ) %>
+
+<table class="table table-bordered">
+
+  <tr>
+    <td><%= @article.title %></td>
+  </tr>
+
+  <tr>
+    <td><%= raw @article.content %></td>
+  </tr>
+
+  <tr>
+    <td><%= image_tag @article.logo.url %></td>
+  </tr>
+  <tr>
+    <td>分类：<%= Classificate.where("id=?", @article.classificate_id).first.fenlei %></td>
+  </tr>
+
+  <tr>
+    <td>
+      <%= link_to "返回", articles_path(:fenlei => @article.classificate_id ), class:"btn btn-primary" %>
+      <%= link_to "编辑", edit_article_path(:fenlei => @article.classificate_id ), class:"btn btn-primary" %>
+    </td>
+  </tr>
+</table>
 
 <p>总共访问量 <%= @count.counts %>次</p>
+

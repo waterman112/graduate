@@ -1,10 +1,11 @@
 class ClassificatesController < ApplicationController
-  before_filter :authenticate_user!, :except => [:show, :index]
+  before_filter :authenticate_user!
 
   layout "classificate"
 
   def index
     @classificates = Classificate.all
+
   end
 
   def new

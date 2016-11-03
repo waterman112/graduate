@@ -18,24 +18,32 @@ class ArticlesController < ApplicationController
   def create
     @article = Article.new(article_params)
     @article.save
+    puts "1111Create"
+    puts "00--#{params}"
 
-    redirect_to @article
+    redirect_to article_path(@article)
   end
 
   def show
-
   end
 
   def edit
   end
 
   def update
-#    @article.title = params[:article][:title]
-#    @article.update_attributes params[:article]
-     @article.update article_params
+    #@article.title = params[:article][:title]
+    #@article.update_attributes params[:article]
+     @article.update article_params  # 这个article_params 是一个方法，具体的定义在 本文件的最下方：private ...
+     puts "222#{params[:article][:logo]}"
 
 
-    redirect_to articles_path
+    #上传文件的基础操作。
+    # File.open(Rails.root.join('public', 'uploads', params[:attachment].original_filename), 'wb') do |file|
+    #    file.write(params[:attachment].read)         # 这里的 :attachment 是在服务器端接收到的数据中查看到的
+    #end
+    #file_path =  Rails.root.join('public', 'uploads', params[:attachment].original_filename)
+
+    redirect_to article_path(@article)
   end
 
   def destroy
@@ -44,8 +52,8 @@ class ArticlesController < ApplicationController
     redirect_to articles_path
   end
   #
-#  很重要的一段代码
-  #  这个地方是在 routes.rb中定义了一个路由。
+  # 很重要的一段代码
+  # 这个地方是在 routes.rb中定义了一个路由。
   #
   def tongjitu
 
@@ -66,7 +74,7 @@ class ArticlesController < ApplicationController
   end
 
   def article_params
-    params.require(:article).permit(:title,:content,:classificate_id)
+    params.require(:article).permit(:title,:content,:classificate_id,:logo)
   end
 
   def update_pv

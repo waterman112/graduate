@@ -12,6 +12,30 @@
 <% end %>
 <%= paginate @articles %>
 
+<!--百度天气接口-->
+<script>
+  var weather = $.ajax({
+    type: "GET",
+    url:"http://api.map.baidu.com/telematics/v3/weather?location=%E5%8C%97%E4%BA%AC&output=json&ak=CDWEjVLqKoNmYtbhUNDqMMO9olmj2e9s",
+    dataType:"json",
+    success:function(data){console.log(data)},
+    error:function(data){console.log(data)}
+
+  });
+
+  console.log(weather);
+
+/*
+var oscript = $("<script>");
+console.log(oscript);
+oscript[0].src = "http://api.map.baidu.com/telematics/v3/weather?location=北京&output=json&ak=CDWEjVLqKoNmYtbhUNDqMMO9olmj2e9s";
+
+document.body.appendChild(oscript[0]);
+*/
+</script>
+
+
+<!--datetimepicker-->
 <script>
   $("#datetimepicker").datetimepicker();
 </script>
