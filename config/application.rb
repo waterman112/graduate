@@ -33,6 +33,7 @@ module Graduate
     YamlConfigurator.decode_yaml( log4r_config['log4r_config'] )
     config.logger = Log4r::Logger[Rails.env]
 
+    config.active_job.queue_adapter = :delayed_job
   end
 end
 

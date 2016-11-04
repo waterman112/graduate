@@ -1,8 +1,6 @@
 class ClassificatesController < ApplicationController
   before_filter :authenticate_user!
 
-  layout "classificate"
-
   def index
     @classificates = Classificate.all
 

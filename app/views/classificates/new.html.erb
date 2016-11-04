@@ -1,10 +1,9 @@
-<h1>这是分类新建页面</h1>
 
-< img src=<%= asset_path "32px.png" %> />
-<%= form_for @classificate ,url: classificates_path, :html =>{:id => "my_form"} do |f| %>
+<%= form_for @classificate ,url: classificates_path, :html =>{ :id => "my_form", :style => "margin:0 auto; padding:10% 36%;"} do |f| %>
   <%= f.text_field :id, placeholder:"请输入id,要大于#{ Classificate.last.id }" %> <br/>
   <%= f.text_field :fenlei, placeholder:"请输入新分类的名称" %> <br/>
   <%= f.submit "提交" , class:"btn btn-primary" %>
+  <%= link_to "返回", classificates_path, :style => "margin-left:38%;", class: "btn btn-primary"%>
 <% end %>
 
 <style>

@@ -1,29 +1,24 @@
-<h1>这是文章显示页面</h1>
 
-<table class="table table-bordered">
+<div style="font-size:30px; font-weight:bold; text-align:center; margin-top:4%; position:relative;">
+  <%= @article.title %>
+  <div style=" position:absolute; left:45%; top:120%; font-size:12px; font-weight:normal;">
+    <div>分类：<%= Classificate.where("id=?", @article.classificate_id).first.fenlei %></div>
+    <div>总共访问量 <%= @count.counts %>次</div>
+  </div>
+</div>
+<div style="border:1px solid red; font-size:18px; margin-top:6%; padding: 0 18%; line-height:34px; "><%= raw @article.content %></div>
+<div><%= image_tag @article.logo.url %></div>
 
-  <tr>
-    <td><%= @article.title %></td>
-  </tr>
+<div style="position:fixed; right:10%; top:50%; ">
+  <div style="width:50px; height:50px; border:1px solid black; border-radius:50%;">
+    <%= link_to "返回", articles_path(:fenlei => @article.classificate_id ),
+      :style => "position:absolute; left:22%; top:18%; font-weight:bold; color:black; " %>
+  </div>
+  <div style="width:50px; height:50px; border:1px solid black; border-radius:50%; margin-top:10px;">
+    <%= link_to "编辑", edit_article_path(:fenlei => @article.classificate_id ),
+      :style => "position:absolute; left:22%; top:66%; font-weight:bold; color:black;" %>
+  </div>
+</div>
 
-  <tr>
-    <td><%= raw @article.content %></td>
-  </tr>
-
-  <tr>
-    <td><%= image_tag @article.logo.url %></td>
-  </tr>
-  <tr>
-    <td>分类：<%= Classificate.where("id=?", @article.classificate_id).first.fenlei %></td>
-  </tr>
-
-  <tr>
-    <td>
-      <%= link_to "返回", articles_path(:fenlei => @article.classificate_id ), class:"btn btn-primary" %>
-      <%= link_to "编辑", edit_article_path(:fenlei => @article.classificate_id ), class:"btn btn-primary" %>
-    </td>
-  </tr>
-</table>
-
-<p>总共访问量 <%= @count.counts %>次</p>
+<%= render :partial => "footer" %>
 

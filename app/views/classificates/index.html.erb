@@ -1,8 +1,6 @@
-<h1>这是分类首页</h1>
 
-<p><%= link_to "新增分类", new_classificate_path, class:"btn btn-primary" %></p>
 
-<div id="jstree_demo">
+<div id="jstree_demo" style="margin-top:10%;">
   <ul>
     <% @classificates.each do |classificate| %>
       <li> <%= classificate.fenlei %>  </li>
@@ -31,8 +29,26 @@
   <% end %>
 </table>
 
-<div  id="using_json"></div>
+<p style="margin-top:10%;"><%= link_to "新增分类", new_classificate_path, class:"btn btn-primary" %></p>
 
+<!--后台跳转到前台-->
+<div id="user_nav" style="float:right; position:absolute; right:0; top:0;">
+  <% if user_signed_in?  %>
+    <p>
+    <%= link_to "退出" , destroy_user_session_path, :style => "font-size:20px; color:#000; ", :method => :delete  %>
+    </p>
+    <p>
+    <%= link_to "进入前台", articles_path, {:style => "font-size:20px; color:#000; "} %>
+    </p>
+  <% else %>
+    <p>
+    <%= link_to "注册", new_user_registration_path, {:style => "font-size:20px; color:#000; "}  %>
+    </p>
+    <p>
+    <%= link_to "登录", new_user_session_path, {:style => "font-size:20px; color:#000; "} %>
+    </p>
+  <% end %>
+</div>
 <!---->
 
 <script>
@@ -44,28 +60,11 @@ $("#jstree_demo").jstree({
   }
 });
 
-
 //js代码 和  rails代码 能够混合式编程。
 //错误的原因是  大师用的是 map方法，我用的是 each 方法。
 //var jia = [];
 //jia.push( { <%= raw  @classificates.each do |e| e.id end  %>});
-
-$('#using_json').jstree({ 'core' : {
-    'data' : [
-       'Simple root node',
-       {
-         'text' : 'Root node 2',
-         'state' : {
-           'opened' : true,
-           'selected' : true
-         },
-         'children' : [
-
-         { 'text' : 'Child 1'
-         },
-           'Child 2'
-         ]
-      }
-    ]
-} });
 </script>
+
+
+

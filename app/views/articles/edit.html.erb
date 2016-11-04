@@ -1,18 +1,8 @@
-<h1>这是文章编辑页面</h1>
-<!--
-<%#<%= form_for @article, url:article_path(@article), method: :patch,%>
-<%#   :html => {multipart: true} do |f| %>                           %>
-<%#  文章标题: <%= f.text_field :title %>                        %>
-<%# 文章内容: <%= f.cktext_area :content %>                      %>
-
-<%#  <%= file_field_tag :attachment %> 请选择附件<br/>          %>
-<%#  <%= f.submit "提交" %>                                        %>
-<%#<% end %>                                                         %>
--->
 
 <%= render :partial => "form" %>
 
-<%= link_to "返回", article_path(@article) %>
+<%= link_to "返回", article_path(@article), :style => "position:absolute; left:86%; bottom:10.4%;
+     font-size:18px; color:black; " %>
 
 <script>
 	$("#form").validate({

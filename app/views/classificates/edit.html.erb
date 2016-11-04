@@ -1,9 +1,21 @@
 <!--后台分类的编辑页面-->
-<h1>this is classificates edit page</h1>
-<%= form_for @classificate ,url:classificate_path(@classificate),mathod: :patch do |f| %>
-  <%= f.text_field :id %>
-  <%= f.text_field :fenlei %>
-  <%= f.submit "提交" %>
+<%= form_for @classificate ,url:classificate_path(@classificate), :html => { :style => "margin-top:10%;"  }  , mathod: :patch do |f| %>
+  <p style="font-weight:bold; font-size:18px;">ID:</p>
+
+  <p>
+    <%= f.text_field :id %>
+  </p>
+
+  <p style="font-weight:bold; font-size:18px;">分类:</p>
+
+  <p>
+    <%= f.text_field :fenlei %>
+  </p>
+
+  <p style="font-weight:bold; font-size:18px;">
+    <%= f.submit "提交", class: "btn btn-primary" %>
+  </p>
+
 <% end %>
 
 

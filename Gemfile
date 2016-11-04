@@ -1,4 +1,5 @@
-source 'https://rubygems.org'
+#source 'https://rubygems.org'
+source 'https://gems.ruby-china.org'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -34,8 +35,7 @@ gem 'kaminari'
 gem 'log4r','1.1.9'
 gem 'carrierwave','0.9.0'
 gem 'chartjs-ror'
-
-
+gem 'rufus-scheduler'
 
 
 
@@ -60,3 +60,5 @@ group :development, :test do
   gem 'spring'
 end
 
+gem 'daemons'
+gem 'delayed_job_active_record'

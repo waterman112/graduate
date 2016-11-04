@@ -1,0 +1,22 @@
+<style>
+  .ul1{margin:0 auto; padding-left:16%; }
+  .ul1 li{width:16%; list-style:none; float:left; font-size:28px; font-weight:bold; line-height:45px;}
+  a{text-decoration:none; }
+  .ul1 li a {color:black; }
+  .ul1 li a:hover{background-color:#fff;}
+  .clearfix:after{
+    content: '';
+    visibility:hidden;
+    display:block;
+    height:0;
+    clear:both;
+  }
+</style>
+
+<ul class="ul1 clearfix" >
+  <% @classificates.each do |classificates|   %>
+    <li><%= link_to "#{classificates.fenlei}", articles_path(:fenlei => classificates.id)  %></li>
+  <% end %>
+    <li><%= link_to "关于我", about_me_articles_path  %></li>
+    <li><%= link_to "统计图", tongjitu_articles_path  %></li>
+</ul>

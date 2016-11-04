@@ -1,44 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>毕业</title>
+  <title>恺恺的个人博客</title>
   <%= stylesheet_link_tag    'application', media: 'all' %>
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
 </head>
-<body style=" width:1000px; margin:0 auto;">
 
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
-
-  <!--增加跳转到后台-->
-  <%= link_to "跳转到后台", classificates_path, html_options = { class:"btn btn-primary", style:"float:right;"} %>
-
-    <table>
-      <tr>
-        <% Classificate.all.each do |classificate|  %>
-          <td><%# link_to "#{classificate.fenlei}",{controller:"articles",action:"index",fenlei:"#{classificate.id}"}  %></td>
-          <td><%= link_to classificate.fenlei, articles_path(:fenlei =>classificate.id) %></td>
-          <!--
-          <td><%#= f.text_field :classificate_id  %></td>
-          <td><%#= f.submit "#{classificate.fenlei}" %></td>
-          -->
-        <% end %>
-        <td><%= link_to '统计图2', tongjitu_articles_path %></td>
-        <td><%= link_to "关于我", about_me_articles_path %></td>
-      </tr>
-    </table>
-
-  <!---->
-  <div id="user_nav">
-    <% if user_signed_in?  %>
-      Signed in as <%= current_user.email %>. Not you?
-      <%= link_to "Sign out" ,destroy_user_session_path, :method => :delete %>
-    <% else %>
-      <%= link_to "Sign up", new_user_registration_path %> or
-      <%= link_to "Sing in", new_user_session_path %>
-    <% end %>
-  </div>
+<body style=" width:1000px; margin:0 auto; background-color:grey; position:relative; ">
 
   <%= yield %>
 
