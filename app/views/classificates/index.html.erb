@@ -21,7 +21,7 @@
         <%= classificate.id %>
       </td>
       <td>
-        <%= link_to( "#{classificate.fenlei}", articles_path(:fenlei => classificate.id) ) %>
+        <%= link_to( "#{classificate.fenlei}", articles_path(:fenlei => classificate.id), :style => "color:#fff;" ) %>
       </td>
       <td><%= link_to "编辑", edit_classificate_path(classificate), class:"btn btn-primary" %></td>
       <td><%= link_to "删除", classificate_path(classificate),method: :delete, data:{confirm:"Are you sure!"}, class:"btn btn-danger" %></td>
