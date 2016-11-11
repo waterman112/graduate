@@ -23,9 +23,7 @@ class User < ActiveRecord::Base
   #self.role.name 得到的是name字段
   #
   def admin?
-    puts "this is from user.rb__what_is_self__#{self}"
     if self.role.name == nil
-      puts "this is from user.rb__ jkjkj  nil"
       self.role.name = "Regular"
     else
       self.role.name == "Admin"

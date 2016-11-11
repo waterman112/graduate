@@ -1,7 +1,6 @@
 class ClassificatesController < ApplicationController
-
   before_filter :authenticate_user!
-
+  before_filter :classificate_params, if: :devise_controller?
   before_action :get_classificates, :only => [:show, :update, :destroy, :edit ]
 
   load_and_authorize_resource
@@ -16,7 +15,7 @@ class ClassificatesController < ApplicationController
   end
 
   def create
-    classificate = Classificate.create(classificate_params)
+    classificate = Classificate.create( classificate_params )
 
     redirect_to classificate
   end
@@ -51,6 +50,5 @@ class ClassificatesController < ApplicationController
     def get_classificates
       @classificate = Classificate.find params[:id]
     end
-
 
 end
