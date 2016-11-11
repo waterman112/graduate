@@ -1,5 +1,10 @@
 class ClassificatesController < ApplicationController
+
   before_filter :authenticate_user!
+
+  before_action :get_classificates, :only => [:show, :update, :destroy, :edit ]
+
+  load_and_authorize_resource
 
   def index
     @classificates = Classificate.all
@@ -17,17 +22,14 @@ class ClassificatesController < ApplicationController
   end
 
   def show
-    @classificate = Classificate.find params[:id]
   end
 
   def edit
-    @classificate = Classificate.find params[:id]
-
   end
 
   def update
     #通过ID找到数据库的这条记录
-    @classificate = Classificate.find params[:id]
+
     #对这条记录进行更新操作
     @classificate.update classificate_params
 
@@ -35,7 +37,6 @@ class ClassificatesController < ApplicationController
   end
 
   def destroy
-    @classificate = Classificate.find params[:id]
     @classificate.destroy
 
     redirect_to classificates_path
@@ -46,4 +47,10 @@ class ClassificatesController < ApplicationController
     def classificate_params
       params.require(:classificate).permit(:id,:fenlei)
     end
+
+    def get_classificates
+      @classificate = Classificate.find params[:id]
+    end
+
+
 end

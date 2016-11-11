@@ -1,11 +1,24 @@
 class ArticlesController < ApplicationController
+
+  before_filter :authenticate_user!, :except => [:show, :index]
   before_action :get_article, :only => [:show, :edit, :update, :destroy]
 
   before_action :update_pv, :only => [:show]
+
+  #load_and_authorize_resource
+  #
+  #skip...应该是跳过授权的的意思
+  skip_authorization_check :only => [:show, :index]
+
   def index
 
     @articles = Article
-    @articles = @articles.where("classificate_id=?",params[:fenlei]) if params[:fenlei].present?
+    if params[:fenlei].present?
+     #@articles = @articles.where("classificate_id=?",params[:fenlei]) if params[:fenlei].present?
+      @articles = @articles.where("classificate_id=?",params[:fenlei])
+    elsif params[:title].present?
+      @articles = @articles.where("title like '%#{params[:title]}%'")
+    end
     @articles = @articles.all.page(params[:page]).per(5)
 
     @classificates = Classificate.all
@@ -13,6 +26,7 @@ class ArticlesController < ApplicationController
 
   def new
     @article = Article.new
+    @classificates = Classificate.all
   end
 
   def create
@@ -23,6 +37,7 @@ class ArticlesController < ApplicationController
   end
 
   def show
+     # authorize! :read, @article
   end
 
   def edit
@@ -68,9 +83,9 @@ class ArticlesController < ApplicationController
   end
 
 
+
   private
   def get_article
-   # puts "=== hihihi, in before_action, get_article"
     @article = Article.find params[:id]
   end
 

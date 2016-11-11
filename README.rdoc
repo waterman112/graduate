@@ -1,3 +1,95 @@
+
+我的个人网站 kaikai.siwei.tech
+
 == README
 
 rails项目，搭建一个博客
+
+cancan gem 请到我的网站上搜详细的介绍文章，或者到里面写的链接去查看详细的关于cancan的介绍，我也是从那些网站上学习的。
+
+1用了 devise 则需要先登录，这样用到cancan的时候，才不会报错
+2在app/models/ability.rb中写上
+在initialze(user) 函数中写上
+if user
+  can :manage, Article
+end
+
+#这个if代码是我自己写的，用于测试。
+#当把 :manage 换成 :read , 那么，show页面的 "编辑"按钮就不显示
+
+这个测试说明， :manage 比 :read 所能覆盖到的action要多。
+
+:manage 指这个controller中所有的 :action
+:read   指 :index and   :show
+:update 指 :edit  and   :update
+:destroy 指 :destroy
+:create  指 :new   and   :create
+
+
+百度地图增加到1000px，超出了外层div, 但是没哟出现滚动条
+解决办法：在application.html.erb文件内给body增加了overfolw-y:auto;
+
+问题：
+devise 和 cancancan  都有对页面的管理权限，那么这个权限该听谁的？
+听devsie?
+听cancancan？
+还是 结合双方的权限一起去考虑问题？
+
+问题：
+在user.rb内，总是报错，然后去到user.rb内部，看看代码
+
+validates_presence_of :name
+
+before_save :assign_role
+
+private
+def assign_role
+  self.role = Role.find_by name: "Regular" if self.role.nil?
+end
+
+然而，我的逻辑是：我并不是想保存数据到数据库，只是想经过判断得到当前
+在浏览器面前的用户到底是什么角色。
+
+那么，这个判断的逻辑到底是什么呢？
+
+因为我参考的那篇文章的作者 的作者的设想应该是
+对所有的页面都是需要先跳转到log_in页面，而我这却不是，
+所以出现了。
+
+问题：
+对于一个游客来说，我怎么用代码处理，告诉电脑，正在浏览页面的这个用户
+是游客
+
+解决方案：
+在游客进入到这个页面的时刻，在models/ability.rb内
+
+class Ability
+  include CanCan::Ability
+
+  def initialize(user)
+    user ||= User.new(role_id: "1") # guest user
+    if user.admin?
+      can :manage, :all
+    else
+      can :read, :all
+    end
+  end
+end
+
+将使用代码为 User.new(role_id: "1")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

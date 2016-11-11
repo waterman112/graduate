@@ -1,6 +1,6 @@
 <style>
   .ul1{margin:0 auto; padding-left:16%; }
-  .ul1 li{width:16%; list-style:none; float:left; font-size:28px; font-weight:bold; line-height:45px;}
+  .ul1 li{ list-style:none; float:left; font-size:28px; font-weight:bold; line-height:45px;}
   a{text-decoration:none; }
   .ul1 li a {color:black; }
   .ul1 li a:hover{background-color:#fff;}
@@ -20,3 +20,22 @@
     <li><%= link_to "关于我", about_me_articles_path  %></li>
     <li><%= link_to "统计图", tongjitu_articles_path  %></li>
 </ul>
+
+<script>
+  var li = $('.ul1 li');
+
+  function everage_width(li){
+    console.log(li);
+    li_length = li.length;
+    li_width =  1000/(li_length+2);
+    for(var i=0;i<li_length;i++){
+      $(li).css("width",li_width+"px");
+
+      console.log(li[i].width);
+    }
+  }
+  everage_width(li);
+
+
+
+</script>

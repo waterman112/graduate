@@ -1,14 +1,15 @@
 
-
+<!--
 <div id="jstree_demo" style="margin-top:10%;">
   <ul>
-    <% @classificates.each do |classificate| %>
-      <li> <%= classificate.fenlei %>  </li>
-    <% end %>
+    <%#<% @classificates.each do |classificate| %>%>
+    <%#  <li> <%= classificate.fenlei %>  </li>   %>
+    <%#<% end %>                                  %>
   </ul>
 </div>
+-->
 
-<table class="table table-inverse">
+<table class="table table-inverse" style="margin-top:10%; font-weight:bold; font-size:18px;">
   <tr>
     <th>ID:</th>
     <th>FenLei:</th>
@@ -21,18 +22,20 @@
         <%= classificate.id %>
       </td>
       <td>
-        <%= link_to( "#{classificate.fenlei}", articles_path(:fenlei => classificate.id), :style => "color:#fff;" ) %>
+        <%= link_to( "#{classificate.fenlei}", articles_path(:fenlei => classificate.id), :style => "color:#000; " ) %>
       </td>
       <td><%= link_to "编辑", edit_classificate_path(classificate), class:"btn btn-primary" %></td>
-      <td><%= link_to "删除", classificate_path(classificate),method: :delete, data:{confirm:"Are you sure!"}, class:"btn btn-danger" %></td>
+      <td><%= link_to "删除", classificate_path(classificate),method: :delete, data:{confirm:"Are you sure!"},
+        class:"btn btn-danger" %></td>
     </tr>
   <% end %>
 </table>
 
-<p style="margin-top:10%;"><%= link_to "新增分类", new_classificate_path, class:"btn btn-primary" %></p>
+<p style="margin-top:10%;"><%= link_to "新增分类", new_classificate_path, class:"btn btn-primary",
+  :style => "font-weight:bold;" %></p>
 
 <!--后台跳转到前台-->
-<div id="user_nav" style="float:right; position:absolute; right:0; top:0;">
+<div id="user_nav" style="float:right; position:absolute; right:0; top:0; margin-top:-8%;">
   <% if user_signed_in?  %>
     <p>
     <%= link_to "退出" , destroy_user_session_path, :style => "font-size:20px; color:#000; ", :method => :delete  %>
@@ -49,16 +52,15 @@
     </p>
   <% end %>
 </div>
-<!---->
 
 <script>
-$("#jstree_demo").jstree({
-  "core":{
-    "themes":{
-      "variant":"large"
-    }
-  }
-});
+//$("#jstree_demo").jstree({
+ // "core":{
+ //   "themes":{
+  //    "variant":"large"
+ //   }
+//  }
+//});
 
 //js代码 和  rails代码 能够混合式编程。
 //错误的原因是  大师用的是 map方法，我用的是 each 方法。

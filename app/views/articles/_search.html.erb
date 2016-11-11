@@ -1,0 +1,4 @@
+<%= form_tag("/articles/search_result", method: :get) do %>
+  <%= text_field_tag "title" %>
+  <%= submit_tag '搜索' %>
+<% end %>

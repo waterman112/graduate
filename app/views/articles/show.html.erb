@@ -6,19 +6,25 @@
     <div>总共访问量 <%= @count.counts %>次</div>
   </div>
 </div>
-<div style="border:1px solid red; font-size:18px; margin-top:6%; padding: 0 18%; line-height:34px; "><%= raw @article.content %></div>
-<div><%= image_tag @article.logo.url %></div>
-
-<div style="position:fixed; right:10%; top:50%; ">
-  <div style="width:50px; height:50px; border:1px solid black; border-radius:50%;">
-    <%= link_to "返回", articles_path(:fenlei => @article.classificate_id ),
-      :style => "position:absolute; left:22%; top:18%; font-weight:bold; color:black; " %>
-  </div>
-  <div style="width:50px; height:50px; border:1px solid black; border-radius:50%; margin-top:10px;">
-    <%= link_to "编辑", edit_article_path(:fenlei => @article.classificate_id ),
-      :style => "position:absolute; left:22%; top:66%; font-weight:bold; color:black;" %>
-  </div>
+<div style=" font-size:18px; margin-top:6%; padding: 0 18%; line-height:34px; border-left:2px solid darkgrey; border-right:
+2px solid darkgrey;">
+  <%= raw @article.content %>
 </div>
 
-<%= render :partial => "footer" %>
+<% if /.*(.png)$/.match(@article.logo.url) %>
+  <div style="position:relative; z-index:1;"><%= image_tag @article.logo.url %></div>
+<% end %>
 
+<div style="position:fixed; right:10%; top:50%; z-index:999; width:50px; height:50px; border:1px solid black; border-radius:50%; ">
+    <%= link_to "返回", articles_path(:fenlei => @article.classificate_id ),
+      :style => "position:absolute; left:22%; top:32%; font-weight:bold; color:black;" %>
+</div>
+
+<% if can? :update, @article %>
+  <div style="position:fixed; right:10%; top:60%; z-index:999; width:50px; height:50px; border:1px solid black; border-radius:50%; ">
+      <%= link_to "编辑", edit_article_path(:fenlei => @article.classificate_id ),
+        :style => "position:absolute; left:22%; top:32%; font-weight:bold; color:black;" %>
+  </div>
+<% end %>
+
+<%= render :partial => "footer" %>
