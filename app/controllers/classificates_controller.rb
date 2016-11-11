@@ -1,6 +1,5 @@
 class ClassificatesController < ApplicationController
   before_filter :authenticate_user!
-  before_filter :classificate_params if: :devise_controller?
   before_action :get_classificates, :only => [:show, :update, :destroy, :edit ]
 
   load_and_authorize_resource
@@ -16,6 +15,9 @@ class ClassificatesController < ApplicationController
 
   def create
     classificate = Classificate.create( classificate_params )
+    #classificate = Classificate.new
+    #classificate.fenlei = params[:fenlei]
+    #classificate.save
 
     redirect_to classificate
   end
@@ -31,6 +33,8 @@ class ClassificatesController < ApplicationController
 
     #对这条记录进行更新操作
     @classificate.update classificate_params
+    #@classificate.fenlei = params[:fenlei]
+    #@classificate.save
 
     redirect_to classificates_path
   end

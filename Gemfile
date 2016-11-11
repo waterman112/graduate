@@ -36,7 +36,7 @@ gem 'log4r','1.1.9'
 gem 'carrierwave','0.9.0'
 gem 'chartjs-ror'
 gem 'rufus-scheduler'
-gem 'cancan'
+gem 'cancancan','~> 1.10'
 
 
 

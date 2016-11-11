@@ -79,11 +79,14 @@ end
 将使用代码为 User.new(role_id: "1")
 
 
+cancancan wiki:
+Strong Parameters
+https://github.com/CanCanCommunity/cancancan/wiki/Strong-Parameters
 
+下面是一些摘自github wiki
+when using strong_parameters or rails4+, you have to sanitize inputs before saving the record, in actions such as :create and :update
 
-
-
-
+这个也是解释了，ruby on rails 指南上的forbidden问题,为什么需要用到 params
 
 
 
