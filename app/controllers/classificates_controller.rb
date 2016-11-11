@@ -1,6 +1,6 @@
 class ClassificatesController < ApplicationController
   before_filter :authenticate_user!
-  before_filter :classificate_params, if: :devise_controller?
+  before_filter :classificate_params if: :devise_controller?
   before_action :get_classificates, :only => [:show, :update, :destroy, :edit ]
 
   load_and_authorize_resource
